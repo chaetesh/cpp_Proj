@@ -8,6 +8,7 @@ using namespace std;
 
 // Function used to split the marks string and convert into intgers
 vector<int> split(string str, char delimiter)
+
 {
     vector<string> internal;
     stringstream ss(str); // Turn the string into a stream.
@@ -64,24 +65,24 @@ void topper()
     max1 = s[0].sum;
     max2 = s[0].sum;
     max3 = s[0].sum;
-    int m=0,p=0,q=0;
+    int m = 0, p = 0, q = 0;
     for (int i = 0; i < 20; i++)
     {
         // first max
         if (s[i].sum >= max1)
         {
             max1 = s[i].sum;
-            m=i;
+            m = i;
         }
         if (s[i].sum >= max2 && s[i].sum < max1)
         {
-            p=i;
+            p = i;
             max2 = s[i].sum;
         }
         if (s[i].sum > max3 && s[i].sum < max1 && s[i].sum < max2)
         {
             max3 = s[i].sum;
-            q=i;
+            q = i;
         }
     }
     printf("First Student: \n");
@@ -205,13 +206,58 @@ int main()
         getline(readFile, t);
         s[i].add(name, roll_no, t);
     }
-
-    // modify();
-    // del_st();
-    // display();
-    // display_particular();
-    cout<<"tooper: "<<endl;
-    topper();
+    int option;
+    while (1)
+    {
+        cout<<"\n\n";
+        cout << "Please Enter your option to proceed:"<<endl;
+        cout << "1.Modify a student record " << endl;
+        cout << "2.Delete a student record" << endl;
+        cout << "3.Display a particular student record" << endl;
+        cout << "4.Display all student records\n";
+        cout << "5.Display all 3 toppers"<<endl;
+        cout << "6.Exit"<<endl;
+        cout<<"Your Input: ";
+        cin >> option;
+        cout<<endl;
+        switch (option)
+        {
+        case 1:
+        {
+            modify();
+            break;
+        }
+        case 2:
+        {
+            del_st();
+            break;
+        }
+        case 3:
+        {
+            display_particular();
+            break;
+        }
+        case 4:
+        {
+            display();
+            break;
+        }
+        case 5:
+        {
+            cout << "Top 3 Students from the Data" << endl;
+            topper();
+            break;
+        }
+        case 6:
+        {
+            cout<<"Exited!!"<<endl;
+            return 0;
+        }
+        default:{
+            cout<<"Wrong Input!!"<<endl;
+        }
+        }
+    }
 
     return 0;
 }
