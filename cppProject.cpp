@@ -40,7 +40,6 @@ public:
         this->roll_no = roll_no;
         marks = split(mrks, ' ');
         sum = accumulate(marks.begin(), marks.end(), 0);
-        print();
     }
 
     void print()
@@ -244,6 +243,7 @@ int main()
         case 2:
         {
             del_st();
+            cout<<"Student Data deleted Succesfully from Record!!"<<endl;
             size--;
             break;
         }
@@ -254,6 +254,7 @@ int main()
         }
         case 4:
         {
+            cout<<"Details of all Students"<<endl;
             display();
             break;
         }
@@ -266,6 +267,7 @@ int main()
         case 6:
         {
             modify();
+            cout<<"Modification of data Successfull!!"<<endl;
             break;
         }
         case 7:
