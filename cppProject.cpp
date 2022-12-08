@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <sstream>
 using namespace std;
-int size = 0;
+int Size = 0;
 
 // Function used to split the marks string and convert into intgers
 vector<int> split(string str, char delimiter)
@@ -66,7 +66,7 @@ void topper()
     max2 = s[0].sum;
     max3 = s[0].sum;
     int m = 0, p = 0, q = 0;
-    for (int i = 0; i <= size; i++)
+    for (int i = 0; i <= Size; i++)
     {
         // first max
         if (s[i].sum >= max1)
@@ -95,7 +95,7 @@ void topper()
 
 void display()
 {
-    for (int i = 0; i <= size; i++)
+    for (int i = 0; i <= Size; i++)
     {
         if (s[i].name == "")
         {
@@ -110,7 +110,7 @@ void display_particular()
     cout << "Enter student name to display: ";
     string student_name;
     cin >> student_name;
-    for (int i = 0; i <= size; i++)
+    for (int i = 0; i <= Size; i++)
     {
         if (s[i].name == student_name)
         {
@@ -132,7 +132,7 @@ void del_st()
     string find;
     cout << "Enter student name to delete: ";
     cin >> find;
-    for (int i = 0; i <= size; i++)
+    for (int i = 0; i <= Size; i++)
     {
         if (s[i].name == find)
         {
@@ -146,7 +146,7 @@ void modify()
     string find;
     cout << "Enter student name to find: ";
     cin >> find;
-    for (int i = 0; i <= size; i++)
+    for (int i = 0; i <= Size; i++)
     {
         if (s[i].name == find)
         {
@@ -204,7 +204,7 @@ int main()
         getline(readFile, roll_no);
         string t;
         getline(readFile, t);
-        size++;
+        Size++;
         s[i].add(name, roll_no, t);
     }
     int option;
@@ -235,8 +235,8 @@ int main()
             cout<<"Enter Your Marks: ";
             fflush(stdin);
             getline(cin,t);
-            size++;
-            s[size].add(name, roll_no, t);
+            Size++;
+            s[Size].add(name, roll_no, t);
             cout<<"Added Successfull"<<endl;
             break;
         }
@@ -244,7 +244,7 @@ int main()
         {
             del_st();
             cout<<"Student Data deleted Succesfully from Record!!"<<endl;
-            size--;
+            Size--;
             break;
         }
         case 3:
