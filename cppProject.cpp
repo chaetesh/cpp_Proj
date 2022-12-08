@@ -117,9 +117,9 @@ void display_particular()
             cout << "1. Name: " << student_name << endl;
             cout << "2. Roll Nummber: " << s[i].roll_no << endl;
             cout << "3. Marks: " << endl;
-            for (int i = 0; i < s[i].marks.size(); i++)
+            for (int j = 0; j < s[i].marks.size(); j++)
             {
-                cout << s[i].marks[i] << " ";
+                cout << s[i].marks[j] << " ";
             }
             cout << "\n";
             break;
