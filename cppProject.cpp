@@ -57,7 +57,29 @@ public:
     friend void display();
     friend void display_particular();
     friend void topper();
+    friend void updateFile();
 } s[30];
+
+void updateFile()
+{
+    cout<<"Updating file"<<endl;
+    ofstream update;
+    update.open("studentData.txt");
+    for (int i = 0; i <= Size; i++)
+    {
+        if (s[i].name == "")
+        {
+            continue;
+        }
+        update << s[i].name << endl;
+        update << s[i].roll_no << endl;
+        for (int i = 0; i < s[i].marks.size(); i++)
+        {
+            update << s[i].marks[i] << " ";
+        }
+        update<<endl;
+    }
+}
 
 void topper()
 {
@@ -139,6 +161,7 @@ void del_st()
             s[i].name = "";
         }
     }
+    updateFile();
 }
 
 void modify()
@@ -210,40 +233,41 @@ int main()
     int option;
     while (1)
     {
-        cout<<"\n\n";
-        cout << "Please Enter your option to proceed:"<<endl;
-        cout << "1.Add Student Record"<<endl;
+        cout << "\n\n";
+        cout << "Please Enter your option to proceed:" << endl;
+        cout << "1.Add Student Record" << endl;
         cout << "2.Delete a student record" << endl;
         cout << "3.Display a particular student record" << endl;
         cout << "4.Display all student records\n";
-        cout << "5.Display all 3 toppers"<<endl;
+        cout << "5.Display all 3 toppers" << endl;
         cout << "6.Modify a student record " << endl;
-        cout << "7.Exit"<<endl;
-        cout<<"Your Input: ";
+        cout << "7.Exit" << endl;
+        cout << "Your Input: ";
         cin >> option;
-        cout<<endl;
+        cout << endl;
         switch (option)
         {
         case 1:
         {
-            cout<<"Enter Student Name: ";
+            cout << "Enter Student Name: ";
             string name, roll_no;
-            cin>>name;
-            cout<<"Enter Student RollNumber: ";
-            cin>>roll_no;
+            cin >> name;
+            cout << "Enter Student RollNumber: ";
+            cin >> roll_no;
             string t;
-            cout<<"Enter Your Marks: ";
+            cout << "Enter Your Marks: ";
             fflush(stdin);
-            getline(cin,t);
+            getline(cin, t);
             Size++;
             s[Size].add(name, roll_no, t);
-            cout<<"Added Successfull"<<endl;
+            cout << "Added Successfull" << endl;
+            updateFile();
             break;
         }
         case 2:
         {
             del_st();
-            cout<<"Student Data deleted Succesfully from Record!!"<<endl;
+            cout << "Student Data deleted Succesfully from Record!!" << endl;
             Size--;
             break;
         }
@@ -254,7 +278,7 @@ int main()
         }
         case 4:
         {
-            cout<<"Details of all Students"<<endl;
+            cout << "Details of all Students" << endl;
             display();
             break;
         }
@@ -267,16 +291,17 @@ int main()
         case 6:
         {
             modify();
-            cout<<"Modification of data Successfull!!"<<endl;
+            cout << "Modification of data Successfull!!" << endl;
             break;
         }
         case 7:
         {
-            cout<<"Exited!!"<<endl;
+            cout << "Exited!!" << endl;
             return 0;
         }
-        default:{
-            cout<<"Wrong Input!!"<<endl;
+        default:
+        {
+            cout << "Wrong Input!!" << endl;
         }
         }
     }
