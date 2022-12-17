@@ -39,6 +39,12 @@ public:
         this->name = name;
         this->roll_no = roll_no;
         marks = split(mrks, ' ');
+        cout<<"Marks: ";
+        for (int i = 0; i < marks.size(); i++)
+        {
+            cout<<marks[i]<<" ";
+        }
+        cout<<endl;
         sum = accumulate(marks.begin(), marks.end(), 0);
     }
 
@@ -73,9 +79,9 @@ void updateFile()
         }
         update << s[i].name << endl;
         update << s[i].roll_no << endl;
-        for (int i = 0; i < s[i].marks.size(); i++)
+        for (int j = 0; j < s[i].marks.size(); j++)
         {
-            update << s[i].marks[i] << " ";
+            update << s[i].marks[j] << " ";
         }
         update<<endl;
     }
