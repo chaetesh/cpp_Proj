@@ -39,12 +39,6 @@ public:
         this->name = name;
         this->roll_no = roll_no;
         marks = split(mrks, ' ');
-        cout<<"Marks: ";
-        for (int i = 0; i < marks.size(); i++)
-        {
-            cout<<marks[i]<<" ";
-        }
-        cout<<endl;
         sum = accumulate(marks.begin(), marks.end(), 0);
     }
 
