@@ -25,6 +25,29 @@ vector<int> split(string str, char delimiter)
     return Data;
 }
 
+char Grade(int sum)
+{
+    if(sum<=125 && sum>=115)
+    {
+        return 'O';
+    }
+    else if(sum>105)
+    {
+        return 'A';
+    }
+    else if(sum>85)
+    {
+        return 'B';
+    }
+    else if(sum>55)
+    {
+        return 'C';
+    }
+    else{
+        return 'F';
+    }
+}
+
 class Student
 {
 private:
@@ -32,6 +55,7 @@ private:
     string roll_no;
     vector<int> marks;
     int sum;
+    char grade;
 
 public:
     void add(string name, string roll_no, string mrks)
@@ -40,6 +64,14 @@ public:
         this->roll_no = roll_no;
         marks = split(mrks, ' ');
         sum = accumulate(marks.begin(), marks.end(), 0);
+        this->grade = Grade(sum);
+        for (int i = 0; i < marks.size(); i++)
+        {
+            if (marks[i] < 10)
+            {
+                this->grade = 'F';
+            }
+        }
     }
 
     void print()
@@ -51,6 +83,7 @@ public:
             cout << marks[i] << " ";
         }
         cout << "\nSum: " << sum << endl;
+        cout << "Grade: " << grade << endl;
     }
     friend void modify();
     friend void del_st();
@@ -62,7 +95,7 @@ public:
 
 void updateFile()
 {
-    cout<<"Updating file"<<endl;
+    cout << "Updating file" << endl;
     ofstream update;
     update.open("studentData.txt");
     for (int i = 0; i <= Size; i++)
@@ -77,7 +110,7 @@ void updateFile()
         {
             update << s[i].marks[j] << " ";
         }
-        update<<endl;
+        update << endl;
     }
 }
 
