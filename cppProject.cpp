@@ -52,12 +52,12 @@ class Student
 {
 private:
     string name;
-    string roll_no;
     vector<int> marks;
     int sum;
     char grade;
 
 public:
+    string roll_no;
     void add(string name, string roll_no, string mrks)
     {
         this->name = name;
@@ -287,6 +287,20 @@ int main()
             cin >> name;
             cout << "Enter Student RollNumber: ";
             cin >> roll_no;
+            int flag = 0;
+            for (int k = 0; k < Size; k++)
+            {
+                if (s[k].roll_no == roll_no)
+                {
+                    flag = 1;
+                    cout<<"Same RollNumber Repeated!!!"<<endl;
+                    break;
+                }
+            }
+            if (flag)
+            {
+                break;
+            }
             string t;
             cout << "Enter Your Marks: ";
             fflush(stdin);
