@@ -158,6 +158,7 @@ void display()
             continue;
         }
         s[i].print();
+        cout<<endl;
     }
 }
 
@@ -188,12 +189,19 @@ void del_st()
     string find;
     cout << "Enter student name to delete: ";
     cin >> find;
+    int flag = 1;
     for (int i = 0; i <= Size; i++)
     {
         if (s[i].name == find)
         {
+            flag = 0;
             s[i].name = "";
         }
+    }
+    if (flag)
+    {
+        cout<<"Name not present in Records!!"<<endl;
+        return;
     }
     updateFile();
 }
