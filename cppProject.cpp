@@ -84,6 +84,7 @@ public:
         }
         cout << "\nSum: " << sum << endl;
         cout << "Grade: " << grade << endl;
+        cout<<endl;
     }
     friend void modify();
     friend void del_st();
